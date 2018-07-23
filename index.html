@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="convert.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link href="//use.fontawesome.com/releases/v5.1.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="UTF-8">
     <title>javascript converter</title>
 </head>
 <body>
+<header>
+    <h1><i class="fas fa-arrow-circle-right"></i> js-converter</h1>
+</header>
 <div class="mainWrapper">
-<div class="editorWrapper">
-    <textarea id="inputArea" cols="90" rows="30" title="input"></textarea>
+    <div id="converter">
+        <div class="editorWrapper">
+            <label for="inputArea">変換するコードを入力</label>
+            <textarea id="inputArea" cols="90" rows="30" title="input" v-model="inputtext"
+                      v-on:keyup="convert();"></textarea>
+        </div>
+        <div class="afterConvertWrapper">
+            <label for="outputArea">変換後のコード</label><br>
+            <textarea id="outputArea" cols="90" rows="30" title="output" v-model="outputtext"></textarea>
+        </div>
+    </div>
 </div>
-<div class="afterConvertWrapper">
-    <textarea id="outputArea" cols="90" rows="30" title="output"></textarea>
-</div>
-</div>
+<script src="convert.js"></script>
 </body>
 </html>
